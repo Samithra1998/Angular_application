@@ -1,0 +1,47 @@
+<div class="container mt-4">
+
+      <!--Success msg-->
+      <div *ngIf="successMsg" class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+        <strong>{{successMsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" data-visible="false">#</th>
+            <th scope="col">Employee Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Working Hours</th>
+            <th scope="col">Date</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Accountant Signature</th>
+            <th scope="col">Bank Code</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Department Mobile</th>
+            <th scope="col" style="width: max-content;">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let us of readData'>
+            <th scope="row">{{us.id}}</th>
+            <td>{{us.eId}}</td>
+            <td>{{us.fName}}</td>
+            <td>{{us.lName}}</td>
+            <td>{{us.address}}</td>
+            <td>{{us.noOfHours}}</td>
+            <td>{{us.date}}</td>
+            <td>{{us.amount}}</td>
+            <td>{{us.signature}}</td>
+            <td>{{us.bCode}}</td>
+            <td>{{us.dName}}</td>
+            <td>{{us.phone}}</td>
+            <td><button class="btn btn-secondary btn-sm" [routerLink]="['/create',us.id]">Edit</button></td>
+            <td><button class="btn btn-warning btn-sm" (click)="deleteId(us.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

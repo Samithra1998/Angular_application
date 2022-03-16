@@ -1,0 +1,58 @@
+<div class="container" mt-5>
+
+    <!-- Warning msg-->
+    <div *ngIf="errMsg" class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+        <strong>{{errMsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <!--Success msg-->
+      <div *ngIf="successMsg" class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+        <strong>{{successMsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <form [formGroup] = 'userForm' >
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="eId" type="text" placeholder="Enter the Employee Id">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="fName" type="text" placeholder="Enter the First Name">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="lName" type="text" placeholder="Enter the Last Name">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="address" type="text" placeholder="Enter the Address">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="noOfHours" type="number" placeholder="Enter the Number of working hours">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="date" type="date" placeholder="Enter the Date">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="amount" type="number" placeholder="Enter the Salary">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="signature" type="text" placeholder="Enter the Accountant's Signature">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="bCode" type="text" placeholder="Enter the bank Code">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="dName" type="text" placeholder="Enter the Department Name">
+        </div>
+        <div class="col-lg-4 mt-4">
+            <input class="form-control" formControlName="phone" type="number" placeholder="Enter the Department Contact Number">
+        </div>
+
+        <div class="col-lg-4 mt-4" *ngIf="!getParmId" (click)="userSubmit()">
+            <button type="button" class="btn btn-primary">Add</button>
+        </div>
+        <div class="col-lg-4 mt-4" *ngIf="getParmId" (click)="userUpdate()">
+            <button type="button" class="btn btn-secondary">Update</button>
+        </div>
+        
+    </form>
+</div>
